@@ -230,7 +230,7 @@ jobs:
       # Add ssh keys with fingerprint
       - add_ssh_keys: 
           fingerprints:
-            - "be:a0:be:46:ca:35:c7:7a:db:2c:aa:a3:52:d1:63:6b"
+            - 'ec:ee:03:33:13:fc:ea:71:6d:29:46:13:dd:2a:42:36'
       - run:
           name: Install dependencies
           command: |
@@ -256,7 +256,7 @@ jobs:
             && cat .circleci/ansible/inventory.txt
             cd .circleci/ansible
             /usr/bin/ansible-playbook -i inventory.txt configure-server.yml
-  #     # Here's where you will add some code to rollback on failure
+      # Here's where you will add some code to rollback on failure
       - destroy-environment:
           description: backend
           stack-name: "udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
