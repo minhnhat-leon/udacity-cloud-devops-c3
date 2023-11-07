@@ -220,27 +220,16 @@ jobs:
 
   configure-infrastructure:
     docker:
-      # Docker image here that supports Ansible
-      - image: "amazon/aws-cli:latest"
+      - image: python:3.7-alpine3.16
     steps:
-      # Checkout code from git
       - checkout
-      - restore_cache:
-          keys: [configure-infrastructure]
-      # Add ssh keys with fingerprint
-      - add_ssh_keys: 
+      - add_ssh_keys:
           fingerprints:
-            - '9a:45:da:31:05:67:cf:bf:07:8a:cd:c6:5f:ce:fe:bf'
+            - 'ec:ee:03:33:13:fc:ea:71:6d:29:46:13:dd:2a:42:36'
       - run:
           name: Install dependencies
           command: |
-            # Your code here
-            yum install -y wget
-            wget http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-14.noarch.rpm
-            rpm -ivh epel-release-7-14.noarch.rpm
-            yum clean expire-cache
-            yum install -y ansible python3 tar gzip
-            yum install -y openssh-clients
+            apk add --update --no-cache tar gzip ansible aws-cli
       # attach workspace
       - attach_workspace:
           at: /tmp
