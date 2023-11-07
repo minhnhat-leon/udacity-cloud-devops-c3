@@ -1,0 +1,20 @@
+# - name: "Add Python repo."
+#   # Your code here
+#   ansible.builtin.command: 
+#     cmd: add-apt-repository ppa:deadsnakes/ppa
+
+- name: "Update package repo"
+  command: apt update
+
+- name: "Full Upgrade"
+  command: apt upgrade -y
+
+# - name: "install python for Ansible."
+#   # Your code here
+#   ansible.builtin.command: apt install -y python3.11
+
+- name: "install dependencies."
+  # Your code here
+  command: apt install -y tar gzip wget
+    # build-essential libncursesw5-dev libssl-dev \
+    # libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
