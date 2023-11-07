@@ -230,7 +230,7 @@ jobs:
       # Add ssh keys with fingerprint
       - add_ssh_keys: 
           fingerprints:
-            - '80:a1:c2:2f:54:d3:ad:4e:6a:b5:14:fe:c3:3e:5f:d4'
+            - '9a:45:da:31:05:67:cf:bf:07:8a:cd:c6:5f:ce:fe:bf'
       - run:
           name: Install dependencies
           command: |
