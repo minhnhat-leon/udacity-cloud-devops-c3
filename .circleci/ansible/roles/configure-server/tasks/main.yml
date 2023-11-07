@@ -1,20 +1,24 @@
-# - name: "Add Python repo."
-#   # Your code here
-#   ansible.builtin.command: 
-#     cmd: add-apt-repository ppa:deadsnakes/ppa
-
-- name: "Update package repo"
-  command: apt update
-
-- name: "Full Upgrade"
-  command: apt upgrade -y
-
-# - name: "install python for Ansible."
-#   # Your code here
-#   ansible.builtin.command: apt install -y python3.11
-
-- name: "install dependencies."
-  # Your code here
-  command: apt install -y tar gzip wget
-    # build-essential libncursesw5-dev libssl-dev \
-    # libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+---
+- name: 'update and upgrade packages.' # sudo apt upgrade
+  become: yes
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400
+- name: remove unneeded deps # sudo apt autoremove
+  become: yes
+  apt:
+    autoremove: yes
+- name: install deps # sudo apt install nodejs npm
+  become: yes
+  apt:
+    name: ['nodejs', 'npm']
+    state: latest
+    update_cache: yes
+- name: install pm2 # sudo npm install pm2 -g
+  become: yes
+  npm:
+    name: pm2
+    global: yes
+    state: latest
+    production: yes

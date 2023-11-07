@@ -1,0 +1,9 @@
+Public Url to GitHub repository (not private) [https://github.com/linhcnse130515/DevOps-Project-3]
+
+Public URL for your S3 Bucket (aka, your green candidate front-end) [https://us-east-1.console.aws.amazon.com/s3/home?region=us-east-1&bucket=udapeople-947ad86]
+
+Public URL for your CloudFront distribution (aka, your blue production front-end) [dc51m5mtgp9ak.cloudfront.net]
+
+Public URLs to deployed application back-end in EC2 [http://54.242.136.87:3030/api/status]
+
+Public URL to your Prometheus Server [http://ec2-54-210-39-62.compute-1.amazonaws.com:9090/targets]
